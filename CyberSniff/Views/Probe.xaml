@@ -1,0 +1,70 @@
+﻿<Page x:Class="CyberSniff.Views.Probe"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Title="Probe"
+      d:DesignHeight="541"
+      d:DesignWidth="296"
+      FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+      mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer Name="MainScrollViewer"
+                      MaxWidth="296"
+                      HorizontalContentAlignment="Left"
+                      VerticalContentAlignment="Top"
+                      AutomationProperties.IsOffscreenBehavior="Default"
+                      HorizontalScrollBarVisibility="Hidden">
+            <Grid MaxWidth="296"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock Name="TitleTextBlock"
+                               Margin="15,15,20,10"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="0.0.0.0" />
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="StatusText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Status:"
+                                   ToolTip="{Binding ElementName=StatusText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="FragmentedText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Fragmented:"
+                                   ToolTip="{Binding ElementName=FragmentedText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="ConnectTimeText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Time:"
+                                   ToolTip="{Binding ElementName=ConnectTimeText, Path=Text}" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <Border x:Name="LoadingGrid"
+                Grid.Row="0"
+                Width="85"
+                Height="85"
+                Background="#7F0A0A14"
+                CornerRadius="25,25,25,25">
+            <ProgressBar Width="45"
+                         Height="45"
+                         Margin="10,10,10,10"
+                         IsIndeterminate="True"
+                         Style="{StaticResource MaterialDesignCircularProgressBar}"
+                         Value="0" />
+        </Border>
+    </Grid>
+</Page>

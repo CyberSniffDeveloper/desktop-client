@@ -1,0 +1,125 @@
+﻿<Page x:Class="CyberSniff.Views.AdapterInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Title="AdapterInfo"
+      d:DesignHeight="541"
+      d:DesignWidth="296"
+      FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+      mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer MaxWidth="296"
+                      HorizontalContentAlignment="Left"
+                      VerticalContentAlignment="Top"
+                      AutomationProperties.IsOffscreenBehavior="Default"
+                      HorizontalScrollBarVisibility="Hidden">
+            <Grid MaxWidth="296"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock Margin="15,15,20,10"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="Hardware" />
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterHardwareAddressText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="H/W Address:"
+                                   ToolTip="{Binding ElementName=AdapterHardwareAddressText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterMacAddressText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="MAC Address:"
+                                   ToolTip="{Binding ElementName=AdapterMacAddressText, Path=Text}" />
+                    </StackPanel>
+                    <TextBlock Margin="15,15,20,10"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="Software" />
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterIpAddressText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Local Address:"
+                                   ToolTip="{Binding ElementName=AdapterIpAddressText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterFriendlyNameText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Friendly Name:"
+                                   ToolTip="{Binding ElementName=AdapterFriendlyNameText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterGatewayText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Gateway:"
+                                   ToolTip="{Binding ElementName=AdapterGatewayText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterLinkTypeText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Link type:"
+                                   ToolTip="{Binding ElementName=AdapterLinkTypeText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterPointerText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Pcap Handle:"
+                                   ToolTip="{Binding ElementName=AdapterPointerText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterLoopbackText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Loopback:"
+                                   ToolTip="{Binding ElementName=AdapterLoopbackText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterBufferSizeText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Kernel buffer size:"
+                                   ToolTip="{Binding ElementName=AdapterBufferSizeText, Path=Text}" />
+                    </StackPanel>
+                    <StackPanel MaxWidth="296"
+                                Margin="20,10,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock x:Name="AdapterFlagsText"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Flags:"
+                                   ToolTip="{Binding ElementName=AdapterFlagsText, Path=Text}" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

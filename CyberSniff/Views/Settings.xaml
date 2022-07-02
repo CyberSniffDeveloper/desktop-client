@@ -1,0 +1,446 @@
+﻿<Page x:Class="CyberSniff.Views.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:window="clr-namespace:CyberSniff.Windows"
+      Title="Settings"
+      d:DesignHeight="541"
+      d:DesignWidth="296"
+      FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+      mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer MaxWidth="296"
+                      HorizontalContentAlignment="Left"
+                      VerticalContentAlignment="Top"
+                      AutomationProperties.IsOffscreenBehavior="Default"
+                      HorizontalScrollBarVisibility="Hidden"
+                      VerticalScrollBarVisibility="Visible">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock Margin="15,15,20,10"
+                               FontWeight="Bold"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="General" />
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton x:Name="ShowDiscordStatusToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Show Discord status"
+                                   TextAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton Name="AutoShowControlPanelToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Automatically show control panel" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton x:Name="PacketAnalyserToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Packet Analyser" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton Name="CountryFlagsToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Country flags" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton x:Name="GeoToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Geolocation" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton Name="HardwareAccelToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Hardware acceleration" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton Name="RememberAdapterToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Save your last used adapter" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton Name="TopMostToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <Label Margin="10,0,0,0"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               VerticalContentAlignment="Center"
+                               Content="Stay on top of all windows" />
+                    </StackPanel>
+                    <StackPanel Height="30"
+                                Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <ToggleButton Name="LabelToggle"
+                                      Margin="10,0,0,0"
+                                      x:FieldModifier="public"
+                                      Command="{x:Static window:MainWindow.SettingsLoadHandler}" />
+                        <TextBlock Margin="10,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Enable labels" />
+                    </StackPanel>
+                    <TextBlock Name="LabelsTitle"
+                               Margin="15,15,20,10"
+                               Style="{StaticResource CyberSniffText}"
+                               Text="Labels" />
+                    <Grid Name="ListGrid"
+                          Margin="20,0,20,5"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top">
+                        <materialDesign:DialogHost HorizontalAlignment="Center"
+                                                   VerticalAlignment="Top"
+                                                   DialogClosing="DialogHost_DialogClosing"
+                                                   DialogTheme="Inherit">
+                            <materialDesign:DialogHost.DialogContent>
+                                <StackPanel Margin="16">
+                                    <TextBlock Style="{StaticResource CyberSniffText}" Text="Add a new label" />
+                                    <TextBox x:Name="HostText"
+                                             Margin="0,8,0,0"
+                                             HorizontalAlignment="Stretch"
+                                             x:FieldModifier="protected"
+                                             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal">
+                                                <materialDesign:PackIcon Kind="Ip" />
+                                                <TextBlock Text=" IP Address" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                    <TextBox x:Name="LabelText"
+                                             Margin="0,8,0,0"
+                                             HorizontalAlignment="Stretch"
+                                             x:FieldModifier="protected"
+                                             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal">
+                                                <materialDesign:PackIcon Kind="LabelOutline" />
+                                                <TextBlock Text=" Label" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <Button Margin="0,8,8,0"
+                                                Command="materialDesign:DialogHost.CloseDialogCommand"
+                                                Cursor="Arrow"
+                                                IsDefault="True"
+                                                Style="{StaticResource MaterialDesignFlatButton}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                                    True
+                                                </system:Boolean>
+                                            </Button.CommandParameter>
+                                            ADD
+                                        </Button>
+                                        <Button Margin="0,8,8,0"
+                                                Command="materialDesign:DialogHost.CloseDialogCommand"
+                                                Cursor="Arrow"
+                                                IsCancel="True"
+                                                Style="{StaticResource MaterialDesignFlatButton}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                                    False
+                                                </system:Boolean>
+                                            </Button.CommandParameter>
+                                            CANCEL
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </materialDesign:DialogHost.DialogContent>
+                            <Border MinWidth="256"
+                                    MinHeight="256"
+                                    VerticalAlignment="Top"
+                                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                                    BorderThickness="1"
+                                    ClipToBounds="True"
+                                    Visibility="Visible">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <ListBox x:Name="LabelsListBox" x:FieldModifier="public">
+                                        <ListBox.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Name="DeleteSelectedLabel" Click="DeleteSelectedLabel_Click">
+                                                    <MenuItem.Icon>
+                                                        <materialDesign:PackIcon Kind="TrashOutline" />
+                                                    </MenuItem.Icon>
+                                                    <MenuItem.Header>
+                                                        <TextBlock>Delete label</TextBlock>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                                <MenuItem Name="DeleteAllLabels" Click="DeleteAllLabels_Click">
+                                                    <MenuItem.Icon>
+                                                        <materialDesign:PackIcon Kind="DeleteOutline" />
+                                                    </MenuItem.Icon>
+                                                    <MenuItem.Header>
+                                                        <TextBlock>Delete all labels</TextBlock>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                                <MenuItem Name="CopyLabel" Click="CopyLabel_Click">
+                                                    <MenuItem.Icon>
+                                                        <materialDesign:PackIcon Kind="ClipboardOutline" />
+                                                    </MenuItem.Icon>
+                                                    <MenuItem.Header>
+                                                        <TextBlock>Copy label</TextBlock>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                                <MenuItem Name="CopyIpLbl" Click="CopyIpLbl_Click">
+                                                    <MenuItem.Icon>
+                                                        <materialDesign:PackIcon Kind="ClipboardOutline" />
+                                                    </MenuItem.Icon>
+                                                    <MenuItem.Header>
+                                                        <TextBlock>Copy IP address</TextBlock>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                            </ContextMenu>
+                                        </ListBox.ContextMenu>
+                                    </ListBox>
+                                    <Button Grid.Row="0"
+                                            Margin="0,0,10,10"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Bottom"
+                                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                            Cursor="Arrow"
+                                            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <materialDesign:PackIcon Width="22"
+                                                                 Height="22"
+                                                                 Kind="Plus" />
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </materialDesign:DialogHost>
+                    </Grid>
+
+                    <TextBlock Margin="15,15,20,10"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="Personalization" />
+                    <StackPanel Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Vertical">
+                        <ComboBox Name="ColorComboBox"
+                                  Width="250"
+                                  Height="50"
+                                  Margin="10,0,10,5"
+                                  x:FieldModifier="public"
+                                  FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+                                  Foreground="White"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Color" />
+                                    <TextBlock Text=" Color" />
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </ComboBox>
+                        <StackPanel Name="CustomColorPickerGrid"
+                                    Margin="10,10,10,5"
+                                    Visibility="Collapsed">
+                            <TextBox Name="HexColorField"
+                                     Height="50"
+                                     x:FieldModifier="protected"
+                                     Foreground="White"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding Color, ElementName=ColorPicker, UpdateSourceTrigger=PropertyChanged}">
+                                <materialDesign:HintAssist.Hint>
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Hashtag" />
+                                        <TextBlock Text=" Hex color" />
+                                    </StackPanel>
+                                </materialDesign:HintAssist.Hint>
+                            </TextBox>
+                            <materialDesign:ColorPicker x:Name="ColorPicker" ColorChanged="ColorPicker_ColorChanged" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="10,0,20,5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Vertical">
+                        <TextBlock Name="BackgroundLbl"
+                                   Margin="10,0,10,5"
+                                   x:FieldModifier="public"
+                                   Style="{StaticResource CyberSniffText}"
+                                   Text="Background: None" />
+                        <StackPanel Margin="10,10,10,5" Orientation="Horizontal">
+                            <Button Name="BackgroundButton"
+                                    Height="40"
+                                    Command="{x:Static window:MainWindow.SetBackground}"
+                                    Cursor="Arrow">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="FolderEditOutline" />
+                                    <TextBlock Text=" PICK IMAGE..." />
+                                </StackPanel>
+                            </Button>
+                            <Button Name="ResetBackground"
+                                    Margin="5,0,5,0"
+                                    Command="{x:Static window:MainWindow.ResetBackground}"
+                                    Cursor="Arrow"
+                                    Style="{StaticResource MaterialDesignFlatButton}">
+                                <materialDesign:PackIcon Kind="WindowClose" />
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,5" Orientation="Horizontal">
+                            <Button Name="ExportThemeButton"
+                                    Height="40"
+                                    Command="{x:Static window:MainWindow.ExportTheme}"
+                                    Cursor="Arrow">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="FileExportOutline" />
+                                    <TextBlock Text=" EXPORT THEME" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,5" Orientation="Horizontal">
+                            <Button Name="ImportThemeButton"
+                                    Height="40"
+                                    Command="{x:Static window:MainWindow.ImportTheme}"
+                                    Cursor="Arrow">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="FileImportOutline" />
+                                    <TextBlock Text=" IMPORT THEME" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <TextBlock Margin="15,15,20,10"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="Other" />
+                    <StackPanel Margin="20,0,20,10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                        <Button Name="OpenLogBtn"
+                                Height="40"
+                                Command="{x:Static window:MainWindow.OpenLog}"
+                                Cursor="Arrow">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Text" />
+                                <TextBlock Text=" OPEN LOG FILE" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <TextBlock Margin="15,15,20,10"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="Third party libraries" />
+                    <TextBlock MaxWidth="296"
+                               Margin="15,0,20,0"
+                               VerticalAlignment="Top"
+                               Foreground="#3FFFFFFF"
+                               Text="BrunoVT1992/ConsoleTable"
+                               TextWrapping="WrapWithOverflow" />
+                    <TextBlock MaxWidth="296"
+                               Margin="15,0,20,0"
+                               VerticalAlignment="Top"
+                               Foreground="#3FFFFFFF"
+                               Text="simpleinjector/SimpleInjector"
+                               TextWrapping="WrapWithOverflow" />
+                    <TextBlock MaxWidth="296"
+                               Margin="15,0,20,0"
+                               VerticalAlignment="Top"
+                               Foreground="#3FFFFFFF"
+                               Text="XamlAnimatedGif/WpfAnimatedGif"
+                               TextWrapping="WrapWithOverflow" />
+                    <TextBlock MaxWidth="296"
+                               Margin="15,0,20,0"
+                               VerticalAlignment="Top"
+                               Foreground="#3FFFFFFF"
+                               Text="chmorgan/sharppcap"
+                               TextWrapping="WrapWithOverflow" />
+                    <TextBlock MaxWidth="296"
+                               Margin="15,0,20,0"
+                               VerticalAlignment="Top"
+                               Foreground="#3FFFFFFF"
+                               Text="Lachee/discord-rpc-csharp"
+                               TextWrapping="WrapWithOverflow" />
+                    <TextBlock MaxWidth="296"
+                               Margin="15,0,20,10"
+                               VerticalAlignment="Top"
+                               Foreground="#3FFFFFFF"
+                               Text="MaterialDesignInXAML/MaterialDesignInXamlToolkit"
+                               TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

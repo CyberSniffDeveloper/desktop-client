@@ -1,0 +1,252 @@
+﻿<Page x:Class="CyberSniff.Views.Arp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CyberSniff.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:converters="clr-namespace:CyberSniff.Converters"
+      Title="Arp"
+      Width="690"
+      d:DesignHeight="541"
+      mc:Ignorable="d">
+    
+    <Page.Resources>
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </Page.Resources>
+    
+    <Grid
+        Background="#4414141E">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel
+                Margin="15,18,390,18"
+                Orientation="Horizontal"
+                RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <TextBox x:Name="IpAddressTextBox"
+                         Width="250"
+                         Margin="0,0,15,0"
+                         VerticalAlignment="Center"
+                         materialDesign:TextFieldAssist.HasClearButton="True"
+                         Foreground="White"
+                         IsEnabled="{Binding IsAdding, Converter={StaticResource InverseBooleanConverter}, ElementName=window}"
+                         RenderTransformOrigin="0.5,0.5"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         ToolTip="Enter the local IP address of the device you want to add">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Ip" />
+                            <TextBlock Text=" IP Address" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button x:Name="AddBtn"
+                        Width="145"
+                        Height="40"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding ElementName=window, Path=IsAdding}"
+                        materialDesign:ButtonProgressAssist.Value="0"
+                        Command="{x:Static local:Arp.AddCommand}"
+                        Cursor="Arrow"
+                        IsEnabled="{Binding IsAdding, Converter={StaticResource InverseBooleanConverter}, ElementName=window}"
+                        ToolTip="Add this device">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon VerticalAlignment="Top" Kind="Add" />
+                        <TextBlock Name="AddDeviceButton" Margin="5,0,0,0">ADD DEVICE</TextBlock>
+                    </StackPanel>
+                </Button>
+                <StackPanel Height="50"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal"
+                            ToolTip="When enabled, CyberSniff will not forward packets sent from the target device to the source device, meaning network connection from that device will completely be killed">
+                    <ToggleButton x:Name="NullRouteToggle"
+                                  Margin="10,0,0,0"
+                                  x:FieldModifier="protected" />
+                    <TextBlock Margin="10,0,0,0"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource CyberSniffText}"
+                               Text="Null-route"
+                               TextAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="ScanBtn"
+                    Width="145"
+                    Height="40"
+                    Margin="793,30,10,30"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding ElementName=window, Path=IsScanning}"
+                    materialDesign:ButtonProgressAssist.Value="0"
+                    Command="{x:Static local:Arp.ScanCommand}"
+                    Cursor="Arrow"
+                    IsEnabled="{Binding IsScanning, Converter={StaticResource InverseBooleanConverter}, ElementName=window}"
+                    RenderTransformOrigin="0.5,0.5"
+                    ToolTip="Scans the ARP routing table for devices on your network">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon VerticalAlignment="Top" Kind="Search" />
+                    <TextBlock Margin="5,0,0,0">
+                        <Run Name="ScanButtonText" Text="SCAN" />
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+            <Button
+                Width="194"
+                Height="40"
+                Margin="594,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding ElementName=window, Path=IsPoisoning}"
+                materialDesign:ButtonProgressAssist.Value="0"
+                Command="{x:Static local:Arp.TogglePoisonCommand}"
+                Cursor="Arrow"
+                RenderTransformOrigin="0.5,0.5"
+                ToolTip="Enables ARP poisoning">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Name="PoisonButtonIcon"
+                                             VerticalAlignment="Top"
+                                             Kind="Play" />
+                    <TextBlock Margin="5,0,0,0">
+                        <Run x:Name="PoisonButtonText" Text="START POISONING" />
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <DataGrid Name="FromDeviceList"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="1"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  AutoGenerateColumns="False"
+                  Background="{x:Null}"
+                  BeginningEdit="Grid_BeginningEdit"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  HorizontalGridLinesBrush="#7F757575"
+                  IsSynchronizedWithCurrentItem="False"
+                  MouseDoubleClick="DataGridView_MouseDoubleClick"
+                  RenderTransformOrigin="0.5,0.5"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow"
+                  VerticalGridLinesBrush="#00000000">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="HandleMenuItems">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ClipboardOutline" />
+                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <TextBlock Text="Copy MAC address" />
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem Click="HandleMenuItems">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ClipboardOutline" />
+                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <TextBlock Text="Copy IP address" />
+                        </MenuItem.Header>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <DataGrid Name="ToDeviceList"
+                  Grid.Row="2"
+                  Grid.ColumnSpan="1"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  AutoGenerateColumns="False"
+                  Background="{x:Null}"
+                  BeginningEdit="Grid_BeginningEdit"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  HorizontalGridLinesBrush="#7F757575"
+                  IsSynchronizedWithCurrentItem="False"
+                  MouseDoubleClick="DataGridView_MouseDoubleClick"
+                  RenderTransformOrigin="0.5,0.5"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow"
+                  VerticalGridLinesBrush="#00000000">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="HandleMenuItems">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ClipboardOutline" />
+                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <TextBlock Text="Copy MAC address" />
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem Click="HandleMenuItems">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ClipboardOutline" />
+                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <TextBlock Text="Copy IP address" />
+                        </MenuItem.Header>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+    </Grid>
+</Page>

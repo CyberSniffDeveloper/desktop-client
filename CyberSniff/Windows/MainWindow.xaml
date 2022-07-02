@@ -1,0 +1,1215 @@
+﻿<Window
+    x:Class="CyberSniff.Windows.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:window="clr-namespace:CyberSniff.Windows"
+    xmlns:classes="clr-namespace:CyberSniff.Classes"
+    xmlns:converters="clr-namespace:CyberSniff.Converters"
+    xmlns:models="clr-namespace:CyberSniff.Models"
+    x:Name="Window"
+    Title="CyberSniff"
+    Width="1100"
+    Height="605"
+    MinWidth="1100"
+    MinHeight="605"
+    MaxWidth="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Width}"
+    MaxHeight="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Height}"
+    AllowsTransparency="True"
+    Background="#FF14141E"
+    Closing="Window_Closing"
+    FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+    Foreground="White"
+    ResizeMode="CanResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="37"
+            CornerRadius="0,0,0,0"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="7"
+            UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        <BeginStoryboard x:Key="OpenPanel">
+            <Storyboard>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-108.347">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-108.347">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PackIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="181.219">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="Dim">
+            <Storyboard>
+                <DoubleAnimation
+                    BeginTime="00:00:00"
+                    Storyboard.TargetName="Dimmer"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.0"
+                    To="1.0"
+                    Duration="00:00:00.300" />
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="HideDim">
+            <Storyboard Completed="Storyboard_Completed">
+                <DoubleAnimation
+                    BeginTime="00:00:00"
+                    Storyboard.TargetName="Dimmer"
+                    Storyboard.TargetProperty="Opacity"
+                    From="1.0"
+                    To="0.0"
+                    Duration="00:00:00.300" />
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="ClosePanel">
+            <Storyboard Completed="Storyboard_Completed_1">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-109.616">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1.384">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-109.616">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1.384">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PackIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="180.553">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="360.06">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="OpenSettings">
+            <Storyboard>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SideViewFrame" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="28.5">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SideViewFrame" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SideViewCanvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-315.092">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="CloseSettings">
+            <Storyboard>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SideViewCanvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-315.005">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="10.995">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <Storyboard x:Key="OpenAnim">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Window" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainDataGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="19">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="TopBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="19">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="19">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20.976">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.034">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <BeginStoryboard x:Key="CloseAnim">
+            <Storyboard Completed="Storyboard_Completed_2">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Window" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainDataGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="22.5">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="TopBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="22.5">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="22.5">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="22.5">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="ShowPanel">
+            <Storyboard Completed="Storyboard_Completed_3">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="109">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="-0.214">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="107.888">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="-0.214">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PackIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="360.112">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="539.982">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="HidePanel">
+            <Storyboard Completed="Storyboard_Completed_1">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="108.996">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="108.169">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PackIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="360.392">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="OpenNotif">
+            <Storyboard>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="NotificationGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="354">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-0.831">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="NotificationGrid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard x:Key="CloseNotif">
+            <Storyboard Completed="Storyboard_Completed_4">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="NotificationGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="336">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="NotificationGrid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <QuinticEase EasingMode="EaseInOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </BeginStoryboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource OpenAnim}" />
+        </EventTrigger>
+    </Window.Triggers>
+    <Border Name="Border" Style="{StaticResource CyberSniffWindowBorder}">
+        <materialDesign:DialogHost
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            DialogClosing="DialogHost_DialogClosing"
+            DialogTheme="Inherit"
+            IsOpen="{Binding ElementName=Window, Path=IsDialogOpen}">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock>
+                        Add a new label
+                    </TextBlock>
+                    <TextBox
+                        x:Name="TextHost"
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Stretch"
+                        Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                        <materialDesign:HintAssist.Hint>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Ip" />
+                                <TextBlock Text=" IP Address" />
+                            </StackPanel>
+                        </materialDesign:HintAssist.Hint>
+                    </TextBox>
+                    <TextBox
+                        x:Name="TextLabel"
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Stretch"
+                        Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                        <materialDesign:HintAssist.Hint>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="LabelOutline" />
+                                <TextBlock Text=" Label" />
+                            </StackPanel>
+                        </materialDesign:HintAssist.Hint>
+                    </TextBox>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button
+                            Margin="0,8,8,0"
+                            Command="materialDesign:DialogHost.CloseDialogCommand"
+                            Cursor="Arrow"
+                            IsDefault="True"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    True
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                            ADD
+                        </Button>
+                        <Button
+                            Margin="0,8,8,0"
+                            Command="materialDesign:DialogHost.CloseDialogCommand"
+                            Cursor="Arrow"
+                            IsCancel="True"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    False
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                            CANCEL
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+            <Grid Name="MainGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image
+                    Name="BackgroundImage"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Width="{Binding ElementName=Window, Path=ActualWidth}"
+                    Height="{Binding ElementName=Window, Path=ActualHeight}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Stretch="UniformToFill" />
+                <Grid
+                    Grid.Row="0" Grid.Column="0" x:Name="TopBox"
+                    Width="{Binding ElementName=MainGrid, Path=ActualWidth}"
+                    Height="37"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#7F0A0A14"
+                    RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button
+                        x:Name="CloseButton"
+                        Width="54"
+                        Height="36"
+                        Margin="1046,0,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{x:Static window:MainWindow.HandleCaptions}"
+                        Cursor="Arrow"
+                        Foreground="White"
+                        RenderTransformOrigin="0.5,0.5"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                        <materialDesign:PackIcon Kind="WindowClose" />
+                    </Button>
+                    <Button
+                        Name="MinButton"
+                        Width="54"
+                        Height="36"
+                        Margin="938,0,110,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{x:Static window:MainWindow.HandleCaptions}"
+                        Cursor="Arrow"
+                        Foreground="White"
+                        RenderTransformOrigin="0.5,0.5"
+                        ToolTip="Minimise CyberSniff"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                        <materialDesign:PackIcon Kind="WindowMinimize" />
+                    </Button>
+                    <Button
+                        Name="MaxButton"
+                        Width="54"
+                        Height="36"
+                        Margin="992,0,55,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{x:Static window:MainWindow.HandleCaptions}"
+                        Cursor="Arrow"
+                        Foreground="White"
+                        RenderTransformOrigin="0.5,0.5"
+                        ToolTip="Maximize CyberSniff"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                        <materialDesign:PackIcon Name="MaxIcon" Kind="WindowMaximize" />
+                    </Button>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Image
+                            Width="20"
+                            Height="20"
+                            Margin="0,0,7,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            MouseDown="IconBox_MouseDown"
+                            RenderTransformOrigin="0.5,0.5"
+                            Source="/Resources/Images/csniff-28.png"
+                            ToolTip="RIP L"
+                            WindowChrome.IsHitTestVisibleInChrome="True">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                        <TextBlock
+                            x:Name="WindowTitleText"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RenderTransformOrigin="0.5,0.5"
+                            Style="{StaticResource CyberSniffBoldText}"
+                            Text="CyberSniff - Idle">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+                <Rectangle
+                    x:Name="Dimmer"
+                    Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                    Width="{Binding ElementName=Window, Path=Width}"
+                    Height="{Binding ElementName=Window, Path=Height}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Fill="#83000000"
+                    Opacity="0"
+                    Visibility="Hidden"
+                    WindowChrome.IsHitTestVisibleInChrome="True" />
+                <DataGrid
+                    x:Name="MainDataGrid"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Width="{Binding ElementName=MainGrid, Path=ActualWidth}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    AutoGenerateColumns="False"
+                    Background="#4414141E"
+                    BeginningEdit="Grid_BeginningEdit"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    CanUserReorderColumns="False"
+                    CanUserResizeColumns="False"
+                    CanUserResizeRows="False"
+                    HorizontalGridLinesBrush="#7F757575"
+                    IsSynchronizedWithCurrentItem="False"
+                    MouseDoubleClick="DataGridView_MouseDoubleClick"
+                    RenderTransformOrigin="0.5,0.5"
+                    SelectionMode="Single"
+                    SelectionUnit="FullRow"
+                    VerticalGridLinesBrush="#00000000">
+                    <DataGrid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </DataGrid.RenderTransform>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <Image Source="{Binding Flag}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="Label" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <TextBlock Text="{Binding Label}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="IP address" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <TextBlock Text="{Binding IpAddress}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="Port" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <TextBlock Text="{Binding Port}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="Country" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <TextBlock Text="{Binding Country}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="State" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <TextBlock Text="{Binding State}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="ISP" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <TextBlock Text="{Binding Isp}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="Protocol" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <TextBlock Text="{Binding Protocol}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="DDoS protected?" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="models:CaptureGrid">
+                                    <materialDesign:PackIcon Kind="{Binding DDoSProtected}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="{x:Static window:MainWindow.CopyCommand}">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="ClipboardOutline" ToolTip="Copy the selected cell" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>Copy</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{x:Static window:MainWindow.LocateCommand}"
+                                ToolTip="View advanced location information about this entry">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="Location" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>Locate</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{x:Static window:MainWindow.TcpProbeCommand}"
+                                ToolTip="Initiate a TCP connection to the host on the specified TCP destination port">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="SatelliteVariant" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>TCP Probe</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem
+                                Command="{x:Static window:MainWindow.ExportCommand}"
+                                ToolTip="Export all capture results to a text file">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="FileExportOutline" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>Export</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem
+                                Command="{x:Static window:MainWindow.RemoveAtCommand}"
+                                ToolTip="Remove selected entry">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="Clear" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>Remove selected item</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{x:Static window:MainWindow.ClearAllCommand}"
+                                ToolTip="Clear all entries">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="RubbishBinOutline" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>Clear all</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem
+                                Name="AnalyseMenuItem"
+                                Command="{x:Static window:MainWindow.AnalyseCommand}"
+                                ToolTip="Analyse the selected entry">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="Search" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>Analyse</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <MenuItem
+                                Name="AddToLabelsMenuItem"
+                                Command="{x:Static window:MainWindow.LabelCommand}"
+                                ToolTip="Add this entry to the labels list">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="LabelVariantOutline" />
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <TextBlock>Add to labels</TextBlock>
+                                </MenuItem.Header>
+                            </MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
+                <Grid
+                    x:Name="Canvas"
+                    Grid.Row="1" Grid.Column="0"
+                    Width="{Binding ActualWidth, ElementName=MainGrid}"
+                    Height="106"
+                    MaxWidth="{Binding ActualWidth, ElementName=MainGrid}"
+                    MaxHeight="106"
+                    Margin="0,460,0,0"
+                    VerticalAlignment="Bottom"
+                    Background="#7F0A0A14"
+                    RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Stretch"
+                        Orientation="Horizontal">
+                        <ComboBox
+                            x:Name="NetworkAdapterComboBox"
+                            Width="420"
+                            Height="50"
+                            Margin="25,0,0,0"
+                            HorizontalAlignment="Left"
+                            FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+                            Foreground="White"
+                            IsEnabled="{Binding IsSniffing, Converter={StaticResource InverseBooleanConverter}, ElementName=Window}"
+                            RenderTransformOrigin="0.5,0.5"
+                            SelectionChanged="NetworkAdapterComboBox_SelectionChanged"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            ToolTip="Pick a network adapter to use CyberSniff with">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="NetworkOutline" />
+                                    <TextBlock Text=" Adapter" />
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                            <ComboBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </ComboBox.RenderTransform>
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel />
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <Button
+                            x:Name="AdapterInfoButton"
+                            Width="50"
+                            Height="50"
+                            Margin="10,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="20"
+                            Command="{x:Static window:MainWindow.OpenAdapter}"
+                            Cursor="Arrow"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                            <materialDesign:PackIcon
+                                Width="18"
+                                Height="18"
+                                Kind="InfoCircleOutline"
+                                ToolTip="Show various information about the selected adapter" />
+                        </Button>
+                        <Button
+                            Width="50"
+                            Height="50"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="20"
+                            Command="{x:Static window:MainWindow.RefreshAdaptersCommand}"
+                            Cursor="Arrow"
+                            IsEnabled="{Binding IsSniffing, Converter={StaticResource InverseBooleanConverter}, ElementName=Window}"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            ToolTip="Refresh the network adapters selection box">
+                            <materialDesign:PackIcon
+                                Width="18"
+                                Height="18"
+                                Kind="Refresh" />
+                        </Button>
+                    </StackPanel>
+                    <StackPanel
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
+                        Orientation="Horizontal">
+                        <Button
+                            x:Name="SniffButton"
+                            Width="100"
+                            Margin="180,0,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="15"
+                            Command="{x:Static window:MainWindow.ToggleCapture}"
+                            Cursor="Arrow"
+                            IsEnabled="{Binding IsSniffing, Converter={StaticResource InverseBooleanConverter}, ElementName=Window}"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            ToolTip="Start / stop capturing traffic">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    x:Name="SniffIcon"
+                                    Margin="0,0,8,0"
+                                    Kind="Search" />
+                                <TextBlock x:Name="SniffText" Text="SNIFF" />
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            x:Name="FilterButton"
+                            Width="50"
+                            Height="50"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="20"
+                            Command="{x:Static window:MainWindow.OpenFilters}"
+                            Cursor="Arrow"
+                            IsEnabled="{Binding IsSniffing, Converter={StaticResource InverseBooleanConverter}, ElementName=Window}"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            ToolTip="Customize packet filtering"
+                            Visibility="Visible">
+                            <materialDesign:PackIcon Kind="FilterOutline" />
+                        </Button>
+                        <Button
+                            x:Name="ArpButton"
+                            Width="50"
+                            Height="50"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="20"
+                            Command="{x:Static window:MainWindow.OpenArp}"
+                            Cursor="Arrow"
+                            IsEnabled="{Binding IsSniffing, Converter={StaticResource InverseBooleanConverter}, ElementName=Window}"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            ToolTip="Open the ARP poisoning window, which controls ARP poisoning on your network (admin not required!)">
+                            <materialDesign:PackIcon
+                                Width="18"
+                                Height="18"
+                                Kind="SkullCrossbonesOutline" />
+                        </Button>
+                        <Button
+                            x:Name="SettingsButton"
+                            Width="50"
+                            Height="50"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="20"
+                            Command="{x:Static window:MainWindow.OpenSettings}"
+                            Cursor="Arrow"
+                            IsEnabled="{Binding IsSniffing, Converter={StaticResource InverseBooleanConverter}, ElementName=Window}"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            ToolTip="Configure CyberSniff to your liking">
+                            <materialDesign:PackIcon
+                                Width="18"
+                                Height="18"
+                                Kind="SettingsOutline" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Canvas
+                    x:Name="Grid"
+                    Grid.Row="1" Grid.Column="0"
+                    Width="104"
+                    Height="29"
+                    MaxWidth="104"
+                    MaxHeight="29"
+                    Margin="500,430,500,105"
+                    VerticalAlignment="Bottom"
+                    Background="#7F0A0A14"
+                    RenderTransformOrigin="0.5,0.5">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <Button
+                        x:Name="MaxBottom"
+                        Width="{Binding ActualWidth, ElementName=Grid}"
+                        Height="{Binding ActualHeight, ElementName=Grid}"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{x:Static window:MainWindow.TogglePanelCommand}"
+                        Cursor="Arrow"
+                        Foreground="White"
+                        RenderTransformOrigin="0.5,0.5"
+                        ToolTip="Show / hide the control panel">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                        <materialDesign:PackIcon
+                            x:Name="PackIcon"
+                            Kind="ArrowUp"
+                            RenderTransformOrigin="0.5,0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform Angle="180.254" />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                </Canvas>
+                <Grid
+                    x:Name="NotificationGrid"
+                    Grid.Row="1" Grid.Column="0"
+                    Width="435"
+                    Height="87"
+                    MaxWidth="435"
+                    MaxHeight="87"
+                    Margin="655,10,10,471"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="#7F0A0A14"
+                    Opacity="100"
+                    RenderTransformOrigin="0.5,0.5"
+                    Visibility="Hidden">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Grid.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Direction="0"
+                            Opacity="1"
+                            RenderingBias="Quality"
+                            ShadowDepth="0" />
+                    </Grid.Effect>
+                    <Button
+                        Width="45"
+                        Height="87"
+                        Margin="390,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{x:Static window:MainWindow.HideNotification}"
+                        Cursor="Arrow"
+                        Foreground="White"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <materialDesign:PackIcon Kind="WindowClose" />
+                    </Button>
+                    <Label
+                        x:Name="NotificationTitle"
+                        Margin="77,11,50,54"
+                        Content="Notice"
+                        Foreground="White" />
+                    <TextBlock
+                        x:Name="NotificationDescription"
+                        Margin="81,33,50,9"
+                        Foreground="#3FFFFFFF"
+                        Text="Description"
+                        TextWrapping="WrapWithOverflow" />
+                    <materialDesign:PackIcon
+                        x:Name="NotificationIcon"
+                        Width="48"
+                        Height="52"
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center"
+                        Kind="InfoOutline" />
+                </Grid>
+                <Grid
+                    x:Name="SideViewCanvas"
+                    Grid.Row="0" Grid.RowSpan="2"
+                    Grid.Column="1"
+                    MaxWidth="800"
+                    Margin="20,0,-315,0"
+                    Background="#FF14141E"
+                    RenderTransformOrigin="0.5,0.5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="64" />
+                        <RowDefinition Height="568*" />
+                    </Grid.RowDefinitions>
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Rectangle
+                        Grid.Row="0"
+                        Width="296"
+                        Height="64"
+                        Fill="#FF07070F"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Rectangle.Effect>
+                            <DropShadowEffect
+                                BlurRadius="25"
+                                Direction="315"
+                                ShadowDepth="5" />
+                        </Rectangle.Effect>
+                    </Rectangle>
+                    <TextBlock
+                        x:Name="SideViewTitle"
+                        Grid.Row="0"
+                        Margin="20,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource CyberSniffTitle}"
+                        Text="Title"
+                        TextAlignment="Center"
+                        WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <Button
+                        x:Name="CloseSideView"
+                        Grid.Row="0"
+                        Width="64"
+                        Height="64"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{x:Static window:MainWindow.HideSideView}"
+                        Cursor="Arrow"
+                        Foreground="White"
+                        ToolTip="Hide this view"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <materialDesign:PackIcon
+                            x:Name="PackIcon1"
+                            Width="17"
+                            Height="17"
+                            Kind="WindowClose"
+                            RenderTransformOrigin="0.5,0.5"
+                            ToolTip="Close CyberSniff">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Frame
+                        x:Name="SideViewFrame"
+                        Grid.Row="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        NavigationUIVisibility="Hidden"
+                        RenderTransformOrigin="0.5,0.5">
+                        <Frame.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Frame.RenderTransform>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </materialDesign:DialogHost>
+    </Border>
+</Window>

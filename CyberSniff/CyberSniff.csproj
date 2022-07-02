@@ -1,0 +1,690 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>CyberSniff</RootNamespace>
+    <PackageId>CyberSniff</PackageId>
+    <Version>3.2.6.5</Version>
+    <Authors>CyberSniffDeveloper</Authors>
+    <Product>CyberSniff</Product>
+    <Description>CyberSniff desktop client</Description>
+    <Copyright>Copyright © CyberSniffDeveloper 2022</Copyright>
+    <ApplicationIcon>csniff-box-ico.ico</ApplicationIcon>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <PackageVersion>3.2.7.5</PackageVersion>
+    <Company>CyberSniffDeveloper</Company>
+    <LangVersion>latestmajor</LangVersion>
+    <Title>CyberSniff</Title>
+    <PackageProjectUrl>https://github.com/CyberSniffDeveloper/desktop-client</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/CyberSniffDeveloper/desktop-client/LICENSE.md</PackageLicenseUrl>
+    <AssemblyVersion>3.2.7.5</AssemblyVersion>
+    <FileVersion>3.2.7.5</FileVersion>
+    <RepositoryUrl>https://github.com/CyberSniffDeveloper/desktop-client</RepositoryUrl>
+    <PackageTags>network, network analyser</PackageTags>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign>true</PublicSign>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\Fonts\CascadiaCode.ttf" />
+    <None Remove="Resources\Fonts\CascadiaCodePL.ttf" />
+    <None Remove="Resources\Fonts\CascadiaMono.ttf" />
+    <None Remove="Resources\Fonts\CascadiaMonoPL.ttf" />
+    <None Remove="Resources\Fonts\gothambold.ttf" />
+    <None Remove="Resources\Fonts\gothambolditalic.ttf" />
+    <None Remove="Resources\Fonts\gothambook.ttf" />
+    <None Remove="Resources\Fonts\gothamlight.ttf" />
+    <None Remove="Resources\Fonts\gothamlightitalic.ttf" />
+    <None Remove="Resources\Fonts\gothammedium.ttf" />
+    <None Remove="Resources\Fonts\gothammediumitalic.ttf" />
+    <None Remove="Resources\Fonts\gothamxlight.ttf" />
+    <None Remove="Resources\Fonts\gothamxlightitalic.ttf" />
+    <None Remove="Resources\Images\csniff-128.png" />
+    <None Remove="Resources\Images\csniff-28.png" />
+    <None Remove="Resources\Images\csniff-65.png" />
+    <None Remove="Resources\Images\csniff-box.png" />
+    <None Remove="Resources\Images\cybersniff-banner.png" />
+    <None Remove="Resources\Images\cybersniff.png" />
+    <None Remove="Resources\Images\Flags\Abkhazia.png" />
+    <None Remove="Resources\Images\Flags\Afghanistan.png" />
+    <None Remove="Resources\Images\Flags\Aland.png" />
+    <None Remove="Resources\Images\Flags\Albania.png" />
+    <None Remove="Resources\Images\Flags\Algeria.png" />
+    <None Remove="Resources\Images\Flags\American-Samoa.png" />
+    <None Remove="Resources\Images\Flags\Andorra.png" />
+    <None Remove="Resources\Images\Flags\Angola.png" />
+    <None Remove="Resources\Images\Flags\Anguilla.png" />
+    <None Remove="Resources\Images\Flags\Antarctica.png" />
+    <None Remove="Resources\Images\Flags\Antigua-and-Barbuda.png" />
+    <None Remove="Resources\Images\Flags\Argentina.png" />
+    <None Remove="Resources\Images\Flags\Armenia.png" />
+    <None Remove="Resources\Images\Flags\Aruba.png" />
+    <None Remove="Resources\Images\Flags\Australia.png" />
+    <None Remove="Resources\Images\Flags\Austria.png" />
+    <None Remove="Resources\Images\Flags\Belarus.png" />
+    <None Remove="Resources\Images\Flags\Belgium.png" />
+    <None Remove="Resources\Images\Flags\Belize.png" />
+    <None Remove="Resources\Images\Flags\Benin.png" />
+    <None Remove="Resources\Images\Flags\Bermuda.png" />
+    <None Remove="Resources\Images\Flags\Bhutan.png" />
+    <None Remove="Resources\Images\Flags\Bolivia.png" />
+    <None Remove="Resources\Images\Flags\Bosnia-and-Herzegovina.png" />
+    <None Remove="Resources\Images\Flags\Botswana.png" />
+    <None Remove="Resources\Images\Flags\Brazil.png" />
+    <None Remove="Resources\Images\Flags\British-Antarctic-Territory.png" />
+    <None Remove="Resources\Images\Flags\British-Virgin-Islands.png" />
+    <None Remove="Resources\Images\Flags\Brunei.png" />
+    <None Remove="Resources\Images\Flags\Bulgaria.png" />
+    <None Remove="Resources\Images\Flags\Burkina-Faso.png" />
+    <None Remove="Resources\Images\Flags\Burundi.png" />
+    <None Remove="Resources\Images\Flags\Cambodia.png" />
+    <None Remove="Resources\Images\Flags\Cameroon.png" />
+    <None Remove="Resources\Images\Flags\Canada.png" />
+    <None Remove="Resources\Images\Flags\Canary-Islands.png" />
+    <None Remove="Resources\Images\Flags\Cape-Verde.png" />
+    <None Remove="Resources\Images\Flags\Catalonia.png" />
+    <None Remove="Resources\Images\Flags\Cayman-Islands.png" />
+    <None Remove="Resources\Images\Flags\Central-African-Republic.png" />
+    <None Remove="Resources\Images\Flags\Chad.png" />
+    <None Remove="Resources\Images\Flags\Chile.png" />
+    <None Remove="Resources\Images\Flags\China.png" />
+    <None Remove="Resources\Images\Flags\Christmas-Island.png" />
+    <None Remove="Resources\Images\Flags\Cocos-Keeling-Islands.png" />
+    <None Remove="Resources\Images\Flags\Colombia.png" />
+    <None Remove="Resources\Images\Flags\Commonwealth.png" />
+    <None Remove="Resources\Images\Flags\Comoros.png" />
+    <None Remove="Resources\Images\Flags\Cook-Islands.png" />
+    <None Remove="Resources\Images\Flags\Costa-Rica.png" />
+    <None Remove="Resources\Images\Flags\Cote-dIvoire.png" />
+    <None Remove="Resources\Images\Flags\Croatia.png" />
+    <None Remove="Resources\Images\Flags\Cuba.png" />
+    <None Remove="Resources\Images\Flags\Curacao.png" />
+    <None Remove="Resources\Images\Flags\Cyprus.png" />
+    <None Remove="Resources\Images\Flags\Czech-Republic.png" />
+    <None Remove="Resources\Images\Flags\Democratic-Republic-of-the-Congo.png" />
+    <None Remove="Resources\Images\Flags\Denmark.png" />
+    <None Remove="Resources\Images\Flags\Djibouti.png" />
+    <None Remove="Resources\Images\Flags\Dominica.png" />
+    <None Remove="Resources\Images\Flags\Dominican-Republic.png" />
+    <None Remove="Resources\Images\Flags\East-Timor.png" />
+    <None Remove="Resources\Images\Flags\Ecuador.png" />
+    <None Remove="Resources\Images\Flags\Egypt.png" />
+    <None Remove="Resources\Images\Flags\El-Salvador.png" />
+    <None Remove="Resources\Images\Flags\England.png" />
+    <None Remove="Resources\Images\Flags\Equatorial-Guinea.png" />
+    <None Remove="Resources\Images\Flags\Eritrea.png" />
+    <None Remove="Resources\Images\Flags\Estonia.png" />
+    <None Remove="Resources\Images\Flags\Ethiopia.png" />
+    <None Remove="Resources\Images\Flags\European-Union.png" />
+    <None Remove="Resources\Images\Flags\Falkland-Islands.png" />
+    <None Remove="Resources\Images\Flags\Faroes.png" />
+    <None Remove="Resources\Images\Flags\Fiji.png" />
+    <None Remove="Resources\Images\Flags\Finland.png" />
+    <None Remove="Resources\Images\Flags\France.png" />
+    <None Remove="Resources\Images\Flags\French-Polynesia.png" />
+    <None Remove="Resources\Images\Flags\French-Southern-Territories.png" />
+    <None Remove="Resources\Images\Flags\Gabon.png" />
+    <None Remove="Resources\Images\Flags\Gambia.png" />
+    <None Remove="Resources\Images\Flags\Georgia.png" />
+    <None Remove="Resources\Images\Flags\Germany.png" />
+    <None Remove="Resources\Images\Flags\Ghana.png" />
+    <None Remove="Resources\Images\Flags\Gibraltar.png" />
+    <None Remove="Resources\Images\Flags\GoSquared.png" />
+    <None Remove="Resources\Images\Flags\Greece.png" />
+    <None Remove="Resources\Images\Flags\Greenland.png" />
+    <None Remove="Resources\Images\Flags\Grenada.png" />
+    <None Remove="Resources\Images\Flags\Guam.png" />
+    <None Remove="Resources\Images\Flags\Guatemala.png" />
+    <None Remove="Resources\Images\Flags\Guernsey.png" />
+    <None Remove="Resources\Images\Flags\Guinea-Bissau.png" />
+    <None Remove="Resources\Images\Flags\Guinea.png" />
+    <None Remove="Resources\Images\Flags\Guyana.png" />
+    <None Remove="Resources\Images\Flags\Haiti.png" />
+    <None Remove="Resources\Images\Flags\Honduras.png" />
+    <None Remove="Resources\Images\Flags\Hong-Kong.png" />
+    <None Remove="Resources\Images\Flags\Hungary.png" />
+    <None Remove="Resources\Images\Flags\Iceland.png" />
+    <None Remove="Resources\Images\Flags\India.png" />
+    <None Remove="Resources\Images\Flags\Indonesia.png" />
+    <None Remove="Resources\Images\Flags\Iran.png" />
+    <None Remove="Resources\Images\Flags\Iraq.png" />
+    <None Remove="Resources\Images\Flags\Ireland.png" />
+    <None Remove="Resources\Images\Flags\Isle-of-Man.png" />
+    <None Remove="Resources\Images\Flags\Israel.png" />
+    <None Remove="Resources\Images\Flags\Italy.png" />
+    <None Remove="Resources\Images\Flags\Jamaica.png" />
+    <None Remove="Resources\Images\Flags\Japan.png" />
+    <None Remove="Resources\Images\Flags\Jersey.png" />
+    <None Remove="Resources\Images\Flags\Jordan.png" />
+    <None Remove="Resources\Images\Flags\Kazakhstan.png" />
+    <None Remove="Resources\Images\Flags\Kenya.png" />
+    <None Remove="Resources\Images\Flags\Kiribati.png" />
+    <None Remove="Resources\Images\Flags\Kosovo.png" />
+    <None Remove="Resources\Images\Flags\Kuwait.png" />
+    <None Remove="Resources\Images\Flags\Kyrgyzstan.png" />
+    <None Remove="Resources\Images\Flags\Laos.png" />
+    <None Remove="Resources\Images\Flags\Latvia.png" />
+    <None Remove="Resources\Images\Flags\Lebanon.png" />
+    <None Remove="Resources\Images\Flags\Lesotho.png" />
+    <None Remove="Resources\Images\Flags\Liberia.png" />
+    <None Remove="Resources\Images\Flags\Libya.png" />
+    <None Remove="Resources\Images\Flags\Liechtenstein.png" />
+    <None Remove="Resources\Images\Flags\Lithuania.png" />
+    <None Remove="Resources\Images\Flags\Luxembourg.png" />
+    <None Remove="Resources\Images\Flags\Macau.png" />
+    <None Remove="Resources\Images\Flags\Macedonia.png" />
+    <None Remove="Resources\Images\Flags\Madagascar.png" />
+    <None Remove="Resources\Images\Flags\Malawi.png" />
+    <None Remove="Resources\Images\Flags\Malaysia.png" />
+    <None Remove="Resources\Images\Flags\Maldives.png" />
+    <None Remove="Resources\Images\Flags\Mali.png" />
+    <None Remove="Resources\Images\Flags\Malta.png" />
+    <None Remove="Resources\Images\Flags\Mars.png" />
+    <None Remove="Resources\Images\Flags\Marshall-Islands.png" />
+    <None Remove="Resources\Images\Flags\Martinique.png" />
+    <None Remove="Resources\Images\Flags\Mauritania.png" />
+    <None Remove="Resources\Images\Flags\Mauritius.png" />
+    <None Remove="Resources\Images\Flags\Mayotte.png" />
+    <None Remove="Resources\Images\Flags\Mexico.png" />
+    <None Remove="Resources\Images\Flags\Micronesia.png" />
+    <None Remove="Resources\Images\Flags\Moldova.png" />
+    <None Remove="Resources\Images\Flags\Monaco.png" />
+    <None Remove="Resources\Images\Flags\Mongolia.png" />
+    <None Remove="Resources\Images\Flags\Montenegro.png" />
+    <None Remove="Resources\Images\Flags\Montserrat.png" />
+    <None Remove="Resources\Images\Flags\Morocco.png" />
+    <None Remove="Resources\Images\Flags\Mozambique.png" />
+    <None Remove="Resources\Images\Flags\Myanmar.png" />
+    <None Remove="Resources\Images\Flags\Nagorno-Karabakh.png" />
+    <None Remove="Resources\Images\Flags\Namibia.png" />
+    <None Remove="Resources\Images\Flags\NATO.png" />
+    <None Remove="Resources\Images\Flags\Nauru.png" />
+    <None Remove="Resources\Images\Flags\Nepal.png" />
+    <None Remove="Resources\Images\Flags\Netherlands-Antilles.png" />
+    <None Remove="Resources\Images\Flags\Netherlands.png" />
+    <None Remove="Resources\Images\Flags\New-Caledonia.png" />
+    <None Remove="Resources\Images\Flags\New-Zealand.png" />
+    <None Remove="Resources\Images\Flags\Nicaragua.png" />
+    <None Remove="Resources\Images\Flags\Niger.png" />
+    <None Remove="Resources\Images\Flags\Nigeria.png" />
+    <None Remove="Resources\Images\Flags\Niue.png" />
+    <None Remove="Resources\Images\Flags\Norfolk-Island.png" />
+    <None Remove="Resources\Images\Flags\North-Korea.png" />
+    <None Remove="Resources\Images\Flags\Northern-Cyprus.png" />
+    <None Remove="Resources\Images\Flags\Northern-Mariana-Islands.png" />
+    <None Remove="Resources\Images\Flags\Norway.png" />
+    <None Remove="Resources\Images\Flags\Olympics.png" />
+    <None Remove="Resources\Images\Flags\Oman.png" />
+    <None Remove="Resources\Images\Flags\Pakistan.png" />
+    <None Remove="Resources\Images\Flags\Palau.png" />
+    <None Remove="Resources\Images\Flags\Palestine.png" />
+    <None Remove="Resources\Images\Flags\Panama.png" />
+    <None Remove="Resources\Images\Flags\Papua-New-Guinea.png" />
+    <None Remove="Resources\Images\Flags\Paraguay.png" />
+    <None Remove="Resources\Images\Flags\Peru.png" />
+    <None Remove="Resources\Images\Flags\Philippines.png" />
+    <None Remove="Resources\Images\Flags\Pitcairn-Islands.png" />
+    <None Remove="Resources\Images\Flags\Poland.png" />
+    <None Remove="Resources\Images\Flags\Portugal.png" />
+    <None Remove="Resources\Images\Flags\Puerto-Rico.png" />
+    <None Remove="Resources\Images\Flags\Qatar.png" />
+    <None Remove="Resources\Images\Flags\Red-Cross.png" />
+    <None Remove="Resources\Images\Flags\Republic-of-the-Congo.png" />
+    <None Remove="Resources\Images\Flags\Reunion.png" />
+    <None Remove="Resources\Images\Flags\Romania.png" />
+    <None Remove="Resources\Images\Flags\Russia.png" />
+    <None Remove="Resources\Images\Flags\Rwanda.png" />
+    <None Remove="Resources\Images\Flags\Saint-Barthelemy.png" />
+    <None Remove="Resources\Images\Flags\Saint-Helena.png" />
+    <None Remove="Resources\Images\Flags\Saint-Kitts-and-Nevis.png" />
+    <None Remove="Resources\Images\Flags\Saint-Lucia.png" />
+    <None Remove="Resources\Images\Flags\Saint-Martin.png" />
+    <None Remove="Resources\Images\Flags\Saint-Vincent-and-the-Grenadines.png" />
+    <None Remove="Resources\Images\Flags\Samoa.png" />
+    <None Remove="Resources\Images\Flags\San-Marino.png" />
+    <None Remove="Resources\Images\Flags\Sao-Tome-and-Principe.png" />
+    <None Remove="Resources\Images\Flags\Saudi-Arabia.png" />
+    <None Remove="Resources\Images\Flags\Scotland.png" />
+    <None Remove="Resources\Images\Flags\Senegal.png" />
+    <None Remove="Resources\Images\Flags\Serbia.png" />
+    <None Remove="Resources\Images\Flags\Seychelles.png" />
+    <None Remove="Resources\Images\Flags\Sierra-Leone.png" />
+    <None Remove="Resources\Images\Flags\Singapore.png" />
+    <None Remove="Resources\Images\Flags\Sint-Maarten.png" />
+    <None Remove="Resources\Images\Flags\Slovakia.png" />
+    <None Remove="Resources\Images\Flags\Slovenia.png" />
+    <None Remove="Resources\Images\Flags\Solomon-Islands.png" />
+    <None Remove="Resources\Images\Flags\Somalia.png" />
+    <None Remove="Resources\Images\Flags\Somaliland.png" />
+    <None Remove="Resources\Images\Flags\South-Africa.png" />
+    <None Remove="Resources\Images\Flags\South-Georgia-and-the-South-Sandwich-Islands.png" />
+    <None Remove="Resources\Images\Flags\South-Korea.png" />
+    <None Remove="Resources\Images\Flags\South-Ossetia.png" />
+    <None Remove="Resources\Images\Flags\South-Sudan.png" />
+    <None Remove="Resources\Images\Flags\Spain.png" />
+    <None Remove="Resources\Images\Flags\Sri-Lanka.png" />
+    <None Remove="Resources\Images\Flags\Sudan.png" />
+    <None Remove="Resources\Images\Flags\Suriname.png" />
+    <None Remove="Resources\Images\Flags\Swaziland.png" />
+    <None Remove="Resources\Images\Flags\Sweden.png" />
+    <None Remove="Resources\Images\Flags\Switzerland.png" />
+    <None Remove="Resources\Images\Flags\Syria.png" />
+    <None Remove="Resources\Images\Flags\Taiwan.png" />
+    <None Remove="Resources\Images\Flags\Tajikistan.png" />
+    <None Remove="Resources\Images\Flags\Tanzania.png" />
+    <None Remove="Resources\Images\Flags\Thailand.png" />
+    <None Remove="Resources\Images\Flags\Togo.png" />
+    <None Remove="Resources\Images\Flags\Tokelau.png" />
+    <None Remove="Resources\Images\Flags\Tonga.png" />
+    <None Remove="Resources\Images\Flags\Trinidad-and-Tobago.png" />
+    <None Remove="Resources\Images\Flags\Tunisia.png" />
+    <None Remove="Resources\Images\Flags\Turkey.png" />
+    <None Remove="Resources\Images\Flags\Turkmenistan.png" />
+    <None Remove="Resources\Images\Flags\Turks-and-Caicos-Islands.png" />
+    <None Remove="Resources\Images\Flags\Tuvalu.png" />
+    <None Remove="Resources\Images\Flags\Uganda.png" />
+    <None Remove="Resources\Images\Flags\Ukraine.png" />
+    <None Remove="Resources\Images\Flags\United-Arab-Emirates.png" />
+    <None Remove="Resources\Images\Flags\United-Kingdom.png" />
+    <None Remove="Resources\Images\Flags\United-Nations.png" />
+    <None Remove="Resources\Images\Flags\United-States.png" />
+    <None Remove="Resources\Images\Flags\Unknown.png" />
+    <None Remove="Resources\Images\Flags\Uruguay.png" />
+    <None Remove="Resources\Images\Flags\US-Virgin-Islands.png" />
+    <None Remove="Resources\Images\Flags\Uzbekistan.png" />
+    <None Remove="Resources\Images\Flags\Vanuatu.png" />
+    <None Remove="Resources\Images\Flags\Vatican-City.png" />
+    <None Remove="Resources\Images\Flags\Venezuela.png" />
+    <None Remove="Resources\Images\Flags\Vietnam.png" />
+    <None Remove="Resources\Images\Flags\Wales.png" />
+    <None Remove="Resources\Images\Flags\Wallis-And-Futuna.png" />
+    <None Remove="Resources\Images\Flags\Western-Sahara.png" />
+    <None Remove="Resources\Images\Flags\Yemen.png" />
+    <None Remove="Resources\Images\Flags\Zambia.png" />
+    <None Remove="Resources\Images\Flags\Zimbabwe.png" />
+    <None Remove="Windows\cybersniff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DiscordRichPresence" Version="1.0.175" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PacketDotNet" Version="1.4.6" />
+    <PackageReference Include="SharpCompress" Version="0.32.1" />
+    <PackageReference Include="SharpPcap" Version="5.4.0" />
+    <PackageReference Include="SimpleInjector" Version="5.3.3" />
+    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
+    <PackageReference Include="System.Management" Version="6.0.0" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\CascadiaCode.ttf" />
+    <Resource Include="Resources\Fonts\CascadiaCodePL.ttf" />
+    <Resource Include="Resources\Fonts\CascadiaMono.ttf" />
+    <Resource Include="Resources\Fonts\CascadiaMonoPL.ttf" />
+    <Resource Include="Resources\Fonts\gothambold.ttf" />
+    <Resource Include="Resources\Fonts\gothambolditalic.ttf" />
+    <Resource Include="Resources\Fonts\gothambook.ttf" />
+    <Resource Include="Resources\Fonts\gothamlight.ttf" />
+    <Resource Include="Resources\Fonts\gothamlightitalic.ttf" />
+    <Resource Include="Resources\Fonts\gothammedium.ttf" />
+    <Resource Include="Resources\Fonts\gothammediumitalic.ttf" />
+    <Resource Include="Resources\Fonts\gothamxlight.ttf" />
+    <Resource Include="Resources\Fonts\gothamxlightitalic.ttf" />
+    <Resource Include="Resources\Images\csniff-128.png" />
+    <Resource Include="Resources\Images\csniff-28.png" />
+    <Resource Include="Resources\Images\csniff-65.png" />
+    <Resource Include="Resources\Images\csniff-box.png" />
+    <Resource Include="Resources\Images\cybersniff-banner.png" />
+    <Resource Include="Resources\Images\cybersniff.png" />
+    <Resource Include="Resources\Images\cybersniff-w.png" />
+    <Resource Include="Resources\Images\Flags\Abkhazia.png" />
+    <Resource Include="Resources\Images\Flags\Afghanistan.png" />
+    <Resource Include="Resources\Images\Flags\Aland.png" />
+    <Resource Include="Resources\Images\Flags\Albania.png" />
+    <Resource Include="Resources\Images\Flags\Algeria.png" />
+    <Resource Include="Resources\Images\Flags\American-Samoa.png" />
+    <Resource Include="Resources\Images\Flags\Andorra.png" />
+    <Resource Include="Resources\Images\Flags\Angola.png" />
+    <Resource Include="Resources\Images\Flags\Anguilla.png" />
+    <Resource Include="Resources\Images\Flags\Antarctica.png" />
+    <Resource Include="Resources\Images\Flags\Antigua-and-Barbuda.png" />
+    <Resource Include="Resources\Images\Flags\Argentina.png" />
+    <Resource Include="Resources\Images\Flags\Armenia.png" />
+    <Resource Include="Resources\Images\Flags\Aruba.png" />
+    <Resource Include="Resources\Images\Flags\Australia.png" />
+    <Resource Include="Resources\Images\Flags\Austria.png" />
+    <Resource Include="Resources\Images\Flags\Azerbaijan.png" />
+    <Resource Include="Resources\Images\Flags\Bahamas.png" />
+    <Resource Include="Resources\Images\Flags\Bahrain.png" />
+    <Resource Include="Resources\Images\Flags\Bangladesh.png" />
+    <Resource Include="Resources\Images\Flags\Barbados.png" />
+    <Resource Include="Resources\Images\Flags\Basque-Country.png" />
+    <Resource Include="Resources\Images\Flags\Belarus.png" />
+    <Resource Include="Resources\Images\Flags\Belgium.png" />
+    <Resource Include="Resources\Images\Flags\Belize.png" />
+    <Resource Include="Resources\Images\Flags\Benin.png" />
+    <Resource Include="Resources\Images\Flags\Bermuda.png" />
+    <Resource Include="Resources\Images\Flags\Bhutan.png" />
+    <Resource Include="Resources\Images\Flags\Bolivia.png" />
+    <Resource Include="Resources\Images\Flags\Bosnia-and-Herzegovina.png" />
+    <Resource Include="Resources\Images\Flags\Botswana.png" />
+    <Resource Include="Resources\Images\Flags\Brazil.png" />
+    <Resource Include="Resources\Images\Flags\British-Antarctic-Territory.png" />
+    <Resource Include="Resources\Images\Flags\British-Virgin-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Brunei.png" />
+    <Resource Include="Resources\Images\Flags\Bulgaria.png" />
+    <Resource Include="Resources\Images\Flags\Burkina-Faso.png" />
+    <Resource Include="Resources\Images\Flags\Burundi.png" />
+    <Resource Include="Resources\Images\Flags\Cambodia.png" />
+    <Resource Include="Resources\Images\Flags\Cameroon.png" />
+    <Resource Include="Resources\Images\Flags\Canada.png" />
+    <Resource Include="Resources\Images\Flags\Canary-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Cape-Verde.png" />
+    <Resource Include="Resources\Images\Flags\Catalonia.png" />
+    <Resource Include="Resources\Images\Flags\Cayman-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Central-African-Republic.png" />
+    <Resource Include="Resources\Images\Flags\Chad.png" />
+    <Resource Include="Resources\Images\Flags\Chile.png" />
+    <Resource Include="Resources\Images\Flags\China.png" />
+    <Resource Include="Resources\Images\Flags\Christmas-Island.png" />
+    <Resource Include="Resources\Images\Flags\Cocos-Keeling-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Colombia.png" />
+    <Resource Include="Resources\Images\Flags\Commonwealth.png" />
+    <Resource Include="Resources\Images\Flags\Comoros.png" />
+    <Resource Include="Resources\Images\Flags\Cook-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Costa-Rica.png" />
+    <Resource Include="Resources\Images\Flags\Cote-dIvoire.png" />
+    <Resource Include="Resources\Images\Flags\Croatia.png" />
+    <Resource Include="Resources\Images\Flags\Cuba.png" />
+    <Resource Include="Resources\Images\Flags\Curacao.png" />
+    <Resource Include="Resources\Images\Flags\Cyprus.png" />
+    <Resource Include="Resources\Images\Flags\Czech-Republic.png" />
+    <Resource Include="Resources\Images\Flags\Democratic-Republic-of-the-Congo.png" />
+    <Resource Include="Resources\Images\Flags\Denmark.png" />
+    <Resource Include="Resources\Images\Flags\Djibouti.png" />
+    <Resource Include="Resources\Images\Flags\Dominica.png" />
+    <Resource Include="Resources\Images\Flags\Dominican-Republic.png" />
+    <Resource Include="Resources\Images\Flags\East-Timor.png" />
+    <Resource Include="Resources\Images\Flags\Ecuador.png" />
+    <Resource Include="Resources\Images\Flags\Egypt.png" />
+    <Resource Include="Resources\Images\Flags\El-Salvador.png" />
+    <Resource Include="Resources\Images\Flags\England.png" />
+    <Resource Include="Resources\Images\Flags\Equatorial-Guinea.png" />
+    <Resource Include="Resources\Images\Flags\Eritrea.png" />
+    <Resource Include="Resources\Images\Flags\Estonia.png" />
+    <Resource Include="Resources\Images\Flags\Ethiopia.png" />
+    <Resource Include="Resources\Images\Flags\European-Union.png" />
+    <Resource Include="Resources\Images\Flags\Falkland-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Faroes.png" />
+    <Resource Include="Resources\Images\Flags\Fiji.png" />
+    <Resource Include="Resources\Images\Flags\Finland.png" />
+    <Resource Include="Resources\Images\Flags\France.png" />
+    <Resource Include="Resources\Images\Flags\French-Polynesia.png" />
+    <Resource Include="Resources\Images\Flags\French-Southern-Territories.png" />
+    <Resource Include="Resources\Images\Flags\Gabon.png" />
+    <Resource Include="Resources\Images\Flags\Gambia.png" />
+    <Resource Include="Resources\Images\Flags\Georgia.png" />
+    <Resource Include="Resources\Images\Flags\Germany.png" />
+    <Resource Include="Resources\Images\Flags\Ghana.png" />
+    <Resource Include="Resources\Images\Flags\Gibraltar.png" />
+    <Resource Include="Resources\Images\Flags\GoSquared.png" />
+    <Resource Include="Resources\Images\Flags\Greece.png" />
+    <Resource Include="Resources\Images\Flags\Greenland.png" />
+    <Resource Include="Resources\Images\Flags\Grenada.png" />
+    <Resource Include="Resources\Images\Flags\Guam.png" />
+    <Resource Include="Resources\Images\Flags\Guatemala.png" />
+    <Resource Include="Resources\Images\Flags\Guernsey.png" />
+    <Resource Include="Resources\Images\Flags\Guinea-Bissau.png" />
+    <Resource Include="Resources\Images\Flags\Guinea.png" />
+    <Resource Include="Resources\Images\Flags\Guyana.png" />
+    <Resource Include="Resources\Images\Flags\Haiti.png" />
+    <Resource Include="Resources\Images\Flags\Honduras.png" />
+    <Resource Include="Resources\Images\Flags\Hong-Kong.png" />
+    <Resource Include="Resources\Images\Flags\Hungary.png" />
+    <Resource Include="Resources\Images\Flags\Iceland.png" />
+    <Resource Include="Resources\Images\Flags\India.png" />
+    <Resource Include="Resources\Images\Flags\Indonesia.png" />
+    <Resource Include="Resources\Images\Flags\Iran.png" />
+    <Resource Include="Resources\Images\Flags\Iraq.png" />
+    <Resource Include="Resources\Images\Flags\Ireland.png" />
+    <Resource Include="Resources\Images\Flags\Isle-of-Man.png" />
+    <Resource Include="Resources\Images\Flags\Israel.png" />
+    <Resource Include="Resources\Images\Flags\Italy.png" />
+    <Resource Include="Resources\Images\Flags\Jamaica.png" />
+    <Resource Include="Resources\Images\Flags\Japan.png" />
+    <Resource Include="Resources\Images\Flags\Jersey.png" />
+    <Resource Include="Resources\Images\Flags\Jordan.png" />
+    <Resource Include="Resources\Images\Flags\Kazakhstan.png" />
+    <Resource Include="Resources\Images\Flags\Kenya.png" />
+    <Resource Include="Resources\Images\Flags\Kiribati.png" />
+    <Resource Include="Resources\Images\Flags\Kosovo.png" />
+    <Resource Include="Resources\Images\Flags\Kuwait.png" />
+    <Resource Include="Resources\Images\Flags\Kyrgyzstan.png" />
+    <Resource Include="Resources\Images\Flags\Laos.png" />
+    <Resource Include="Resources\Images\Flags\Latvia.png" />
+    <Resource Include="Resources\Images\Flags\Lebanon.png" />
+    <Resource Include="Resources\Images\Flags\Lesotho.png" />
+    <Resource Include="Resources\Images\Flags\Liberia.png" />
+    <Resource Include="Resources\Images\Flags\Libya.png" />
+    <Resource Include="Resources\Images\Flags\Liechtenstein.png" />
+    <Resource Include="Resources\Images\Flags\Lithuania.png" />
+    <Resource Include="Resources\Images\Flags\Luxembourg.png" />
+    <Resource Include="Resources\Images\Flags\Macau.png" />
+    <Resource Include="Resources\Images\Flags\Macedonia.png" />
+    <Resource Include="Resources\Images\Flags\Madagascar.png" />
+    <Resource Include="Resources\Images\Flags\Malawi.png" />
+    <Resource Include="Resources\Images\Flags\Malaysia.png" />
+    <Resource Include="Resources\Images\Flags\Maldives.png" />
+    <Resource Include="Resources\Images\Flags\Mali.png" />
+    <Resource Include="Resources\Images\Flags\Malta.png" />
+    <Resource Include="Resources\Images\Flags\Mars.png" />
+    <Resource Include="Resources\Images\Flags\Marshall-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Martinique.png" />
+    <Resource Include="Resources\Images\Flags\Mauritania.png" />
+    <Resource Include="Resources\Images\Flags\Mauritius.png" />
+    <Resource Include="Resources\Images\Flags\Mayotte.png" />
+    <Resource Include="Resources\Images\Flags\Mexico.png" />
+    <Resource Include="Resources\Images\Flags\Micronesia.png" />
+    <Resource Include="Resources\Images\Flags\Moldova.png" />
+    <Resource Include="Resources\Images\Flags\Monaco.png" />
+    <Resource Include="Resources\Images\Flags\Mongolia.png" />
+    <Resource Include="Resources\Images\Flags\Montenegro.png" />
+    <Resource Include="Resources\Images\Flags\Montserrat.png" />
+    <Resource Include="Resources\Images\Flags\Morocco.png" />
+    <Resource Include="Resources\Images\Flags\Mozambique.png" />
+    <Resource Include="Resources\Images\Flags\Myanmar.png" />
+    <Resource Include="Resources\Images\Flags\Nagorno-Karabakh.png" />
+    <Resource Include="Resources\Images\Flags\Namibia.png" />
+    <Resource Include="Resources\Images\Flags\NATO.png" />
+    <Resource Include="Resources\Images\Flags\Nauru.png" />
+    <Resource Include="Resources\Images\Flags\Nepal.png" />
+    <Resource Include="Resources\Images\Flags\Netherlands-Antilles.png" />
+    <Resource Include="Resources\Images\Flags\Netherlands.png" />
+    <Resource Include="Resources\Images\Flags\New-Caledonia.png" />
+    <Resource Include="Resources\Images\Flags\New-Zealand.png" />
+    <Resource Include="Resources\Images\Flags\Nicaragua.png" />
+    <Resource Include="Resources\Images\Flags\Niger.png" />
+    <Resource Include="Resources\Images\Flags\Nigeria.png" />
+    <Resource Include="Resources\Images\Flags\Niue.png" />
+    <Resource Include="Resources\Images\Flags\Norfolk-Island.png" />
+    <Resource Include="Resources\Images\Flags\North-Korea.png" />
+    <Resource Include="Resources\Images\Flags\Northern-Cyprus.png" />
+    <Resource Include="Resources\Images\Flags\Northern-Mariana-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Norway.png" />
+    <Resource Include="Resources\Images\Flags\Olympics.png" />
+    <Resource Include="Resources\Images\Flags\Oman.png" />
+    <Resource Include="Resources\Images\Flags\Pakistan.png" />
+    <Resource Include="Resources\Images\Flags\Palau.png" />
+    <Resource Include="Resources\Images\Flags\Palestine.png" />
+    <Resource Include="Resources\Images\Flags\Panama.png" />
+    <Resource Include="Resources\Images\Flags\Papua-New-Guinea.png" />
+    <Resource Include="Resources\Images\Flags\Paraguay.png" />
+    <Resource Include="Resources\Images\Flags\Peru.png" />
+    <Resource Include="Resources\Images\Flags\Philippines.png" />
+    <Resource Include="Resources\Images\Flags\Pitcairn-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Poland.png" />
+    <Resource Include="Resources\Images\Flags\Portugal.png" />
+    <Resource Include="Resources\Images\Flags\Puerto-Rico.png" />
+    <Resource Include="Resources\Images\Flags\Qatar.png" />
+    <Resource Include="Resources\Images\Flags\Red-Cross.png" />
+    <Resource Include="Resources\Images\Flags\Republic-of-the-Congo.png" />
+    <Resource Include="Resources\Images\Flags\Reunion.png" />
+    <Resource Include="Resources\Images\Flags\Romania.png" />
+    <Resource Include="Resources\Images\Flags\Russia.png" />
+    <Resource Include="Resources\Images\Flags\Rwanda.png" />
+    <Resource Include="Resources\Images\Flags\Saint-Barthelemy.png" />
+    <Resource Include="Resources\Images\Flags\Saint-Helena.png" />
+    <Resource Include="Resources\Images\Flags\Saint-Kitts-and-Nevis.png" />
+    <Resource Include="Resources\Images\Flags\Saint-Lucia.png" />
+    <Resource Include="Resources\Images\Flags\Saint-Martin.png" />
+    <Resource Include="Resources\Images\Flags\Saint-Vincent-and-the-Grenadines.png" />
+    <Resource Include="Resources\Images\Flags\Samoa.png" />
+    <Resource Include="Resources\Images\Flags\San-Marino.png" />
+    <Resource Include="Resources\Images\Flags\Sao-Tome-and-Principe.png" />
+    <Resource Include="Resources\Images\Flags\Saudi-Arabia.png" />
+    <Resource Include="Resources\Images\Flags\Scotland.png" />
+    <Resource Include="Resources\Images\Flags\Senegal.png" />
+    <Resource Include="Resources\Images\Flags\Serbia.png" />
+    <Resource Include="Resources\Images\Flags\Seychelles.png" />
+    <Resource Include="Resources\Images\Flags\Sierra-Leone.png" />
+    <Resource Include="Resources\Images\Flags\Singapore.png" />
+    <Resource Include="Resources\Images\Flags\Sint-Maarten.png" />
+    <Resource Include="Resources\Images\Flags\Slovakia.png" />
+    <Resource Include="Resources\Images\Flags\Slovenia.png" />
+    <Resource Include="Resources\Images\Flags\Solomon-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Somalia.png" />
+    <Resource Include="Resources\Images\Flags\Somaliland.png" />
+    <Resource Include="Resources\Images\Flags\South-Africa.png" />
+    <Resource Include="Resources\Images\Flags\South-Georgia-and-the-South-Sandwich-Islands.png" />
+    <Resource Include="Resources\Images\Flags\South-Korea.png" />
+    <Resource Include="Resources\Images\Flags\South-Ossetia.png" />
+    <Resource Include="Resources\Images\Flags\South-Sudan.png" />
+    <Resource Include="Resources\Images\Flags\Spain.png" />
+    <Resource Include="Resources\Images\Flags\Sri-Lanka.png" />
+    <Resource Include="Resources\Images\Flags\Sudan.png" />
+    <Resource Include="Resources\Images\Flags\Suriname.png" />
+    <Resource Include="Resources\Images\Flags\Swaziland.png" />
+    <Resource Include="Resources\Images\Flags\Sweden.png" />
+    <Resource Include="Resources\Images\Flags\Switzerland.png" />
+    <Resource Include="Resources\Images\Flags\Syria.png" />
+    <Resource Include="Resources\Images\Flags\Taiwan.png" />
+    <Resource Include="Resources\Images\Flags\Tajikistan.png" />
+    <Resource Include="Resources\Images\Flags\Tanzania.png" />
+    <Resource Include="Resources\Images\Flags\Thailand.png" />
+    <Resource Include="Resources\Images\Flags\Togo.png" />
+    <Resource Include="Resources\Images\Flags\Tokelau.png" />
+    <Resource Include="Resources\Images\Flags\Tonga.png" />
+    <Resource Include="Resources\Images\Flags\Trinidad-and-Tobago.png" />
+    <Resource Include="Resources\Images\Flags\Tunisia.png" />
+    <Resource Include="Resources\Images\Flags\Turkey.png" />
+    <Resource Include="Resources\Images\Flags\Turkmenistan.png" />
+    <Resource Include="Resources\Images\Flags\Turks-and-Caicos-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Tuvalu.png" />
+    <Resource Include="Resources\Images\Flags\Uganda.png" />
+    <Resource Include="Resources\Images\Flags\Ukraine.png" />
+    <Resource Include="Resources\Images\Flags\United-Arab-Emirates.png" />
+    <Resource Include="Resources\Images\Flags\United-Kingdom.png" />
+    <Resource Include="Resources\Images\Flags\United-Nations.png" />
+    <Resource Include="Resources\Images\Flags\United-States.png" />
+    <Resource Include="Resources\Images\Flags\Unknown.png" />
+    <Resource Include="Resources\Images\Flags\Uruguay.png" />
+    <Resource Include="Resources\Images\Flags\US-Virgin-Islands.png" />
+    <Resource Include="Resources\Images\Flags\Uzbekistan.png" />
+    <Resource Include="Resources\Images\Flags\Vanuatu.png" />
+    <Resource Include="Resources\Images\Flags\Vatican-City.png" />
+    <Resource Include="Resources\Images\Flags\Venezuela.png" />
+    <Resource Include="Resources\Images\Flags\Vietnam.png" />
+    <Resource Include="Resources\Images\Flags\Wales.png" />
+    <Resource Include="Resources\Images\Flags\Wallis-And-Futuna.png" />
+    <Resource Include="Resources\Images\Flags\Western-Sahara.png" />
+    <Resource Include="Resources\Images\Flags\Yemen.png" />
+    <Resource Include="Resources\Images\Flags\Zambia.png" />
+    <Resource Include="Resources\Images\Flags\Zimbabwe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Filters.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Nmap.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Probe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Locate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdapterInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\ArpWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Style.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Filters.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Nmap.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Probe.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Locate.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdapterInfo.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\ArpWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml" />
+  </ItemGroup>
+</Project>

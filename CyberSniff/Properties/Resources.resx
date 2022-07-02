@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADAPTER_EXCEPTION" xml:space="preserve">
+    <value>An exception occurred whilst getting your adapters, please refer to the error log.</value>
+  </data>
+  <data name="API_CLIENT_AUTHENTICATE_EXCEPTION" xml:space="preserve">
+    <value>Something is wrong with the CyberSniff client. Please report this to a developer and wait for an update</value>
+  </data>
+  <data name="API_FORGED_REQUEST" xml:space="preserve">
+    <value>Couldn't verify the authenticity of the CyberSniff API response. Therefore we cannot authenticate you. This could be the result of having a HTTP web debugger open, like Fiddler that may tamper with the certificate. Close any web debuggers and try again.</value>
+  </data>
+  <data name="API_OFFLINE" xml:space="preserve">
+    <value>We were unable to reach the CyberSniff servers for communication. Please check your internet connection or try again later.</value>
+  </data>
+  <data name="API_USER_AGENT" xml:space="preserve">
+    <value>CyberSniff-OSS/3.2</value>
+  </data>
+  <data name="APP_STAGE" xml:space="preserve">
+    <value>RELEASE OSS</value>
+  </data>
+  <data name="AUTH_THREAD_EXITED" xml:space="preserve">
+    <value>The authentication thread has exited unexpectedly. This could be due to antivirus software or due to software tampering tools being active. Please restart CyberSniff.</value>
+  </data>
+  <data name="BACKGROUND_LOAD_EXCEPTION" xml:space="preserve">
+    <value>Couldn't load your background, it may have been moved, renamed or deleted.</value>
+  </data>
+  <data name="CAPTURE_ACTIVE_EXIT" xml:space="preserve">
+    <value>You are currently capturing traffic, are you sure you want to exit CyberSniff?</value>
+  </data>
+  <data name="CAPTURE_EXCEPTION" xml:space="preserve">
+    <value>Sorry for the inconvenience, but CyberSniff has crashed (failed to start capture). Please contact support, or try again later. More error information can be found in the 'cybersniff.log' file, in '%appdata%\CyberSniff'.</value>
+  </data>
+  <data name="COPY_EXCEPTION" xml:space="preserve">
+    <value>Failed to copy to clipboard, please make sure you select a item on the list to copy.</value>
+  </data>
+  <data name="CRYPTO_EXCEPTION" xml:space="preserve">
+    <value>Failed to encrypt / decrypt data. This may be a sign of memory corruption. Restart CyberSniff and try again.</value>
+  </data>
+  <data name="EXCEPTION_BASIC" xml:space="preserve">
+    <value>Something went wrong, it has been written to the log file.</value>
+  </data>
+  <data name="GENERIC_EXCEPTION" xml:space="preserve">
+    <value>Sorry for the inconvenience, but CyberSniff has crashed. The error can be viewed below. It has been dumped to a log file which can be found in '%appdata%\CSniffOSS\cybersniff.log'. Use this file to report this problem to developers.</value>
+  </data>
+  <data name="INVALID_FILE_SELECTED" xml:space="preserve">
+    <value>You selected an invalid file. Please select a valid file instead.</value>
+  </data>
+  <data name="LOGOUT_CONFIRM" xml:space="preserve">
+    <value>Are you sure you want to logout of CyberSniff? All settings and account data will be removed from your PC.</value>
+  </data>
+  <data name="LOG_WRITE_EXCEPTION" xml:space="preserve">
+    <value>Failed to write log file changes to the disk, please make sure another program is not using the log file, that CyberSniff has permission to access the file or check your antivirus software.</value>
+  </data>
+  <data name="PCAP_DRIVER_EXCEPTION" xml:space="preserve">
+    <value>We couldn't find Npcap or WinPcap installed on your device which is required to use CyberSniff. Please download and install it from https://nmap.org/npcap</value>
+  </data>
+  <data name="SETTINGS_READ_EXCEPTION" xml:space="preserve">
+    <value>Unable to read your settings, this may mean your settings is corrupted or unsupported. As a result, your settings have been reset. </value>
+  </data>
+  <data name="SETTINGS_WRITE_EXCEPTION" xml:space="preserve">
+    <value>Unable to save your settings, the settings file may be in use by another process or CyberSniff might not have access to the settings file.</value>
+  </data>
+  <data name="THEME_APPLY_EXCEPTION" xml:space="preserve">
+    <value>You specified a invalid color, therefore CyberSniff cannot apply it.</value>
+  </data>
+  <data name="UI_ABOUT_BOX" xml:space="preserve">
+    <value>CyberSniff-OSS was developed by CyberVision Interactive, this build is OSS on GitHub! https://github.com/CyberSniffDeveloper/desktop-client. Credits:
+      
+If you paid for this software after 02/07/2022, you have been scammed and you should demand your money back!   
+    </value>
+  </data>
+  <data name="UI_CLEAR_SUCCESS" xml:space="preserve">
+    <value>Successfully cleared all results.</value>
+  </data>
+  <data name="UI_COPY_SUCCESS" xml:space="preserve">
+    <value>Successfully copied to clipboard.</value>
+  </data>
+  <data name="UPDATE_AVAILABLE" xml:space="preserve">
+    <value>There is a CyberSniff update available, please update to that version before continuing</value>
+  </data>
+  <data name="UPDATE_EXCEPTION" xml:space="preserve">
+    <value>Sorry for the inconvenience, but an exception has occurred whilst contacting the CyberSniff update server. This could be a issue with the server itself. Make sure you are connected to the internet, or try again later.</value>
+  </data>
+</root>

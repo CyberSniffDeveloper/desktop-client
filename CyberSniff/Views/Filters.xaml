@@ -1,0 +1,165 @@
+﻿<Page x:Class="CyberSniff.Views.Filters"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Title="Account"
+      d:DesignHeight="541"
+      d:DesignWidth="296"
+      FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+      mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer MaxWidth="296"
+                      HorizontalContentAlignment="Left"
+                      VerticalContentAlignment="Top"
+                      AutomationProperties.IsOffscreenBehavior="Default"
+                      HorizontalScrollBarVisibility="Hidden">
+            <Grid MaxWidth="296"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock Margin="15,15,20,10"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="Built-in filters" />
+                    <ComboBox x:Name="FilterComboBox"
+                              Height="50"
+                              Margin="20,0,20,5"
+                              VerticalAlignment="Top"
+                              FontFamily="pack://application:,,,/CyberSniff;Component/Resources/Fonts/#Gotham"
+                              Foreground="White"
+                              RenderTransformOrigin="0.5,0.5"
+                              SelectionChanged="HandleControlChanges"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              ToolTip="Select the filter that CyberSniff should use">
+                        <materialDesign:HintAssist.Hint>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FilterOutline" />
+                                <TextBlock Text=" Filter preset" />
+                            </StackPanel>
+                        </materialDesign:HintAssist.Hint>
+                    </ComboBox>
+                    <TextBlock Margin="15,15,20,10"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Style="{StaticResource CyberSniffSubtitle}"
+                               Text="Port filter" />
+                    <Grid Margin="20,0,20,5"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top">
+                        <materialDesign:DialogHost HorizontalAlignment="Center"
+                                                   VerticalAlignment="Top"
+                                                   DialogClosing="DialogHost_Closed"
+                                                   DialogTheme="Inherit">
+                            <materialDesign:DialogHost.DialogContent>
+                                <StackPanel Margin="16">
+                                    <TextBlock>
+                                        Add a new port to filter
+                                    </TextBlock>
+                                    <TextBox x:Name="PortText"
+                                             Margin="0,8,0,0"
+                                             HorizontalAlignment="Stretch"
+                                             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal">
+                                                <materialDesign:PackIcon Kind="DoorOpen" />
+                                                <TextBlock Text=" Port" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <Button Margin="0,8,8,0"
+                                                Command="materialDesign:DialogHost.CloseDialogCommand"
+                                                Cursor="Arrow"
+                                                IsDefault="True"
+                                                Style="{StaticResource MaterialDesignFlatButton}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                                    True
+                                                </system:Boolean>
+                                            </Button.CommandParameter>
+                                            ADD
+                                        </Button>
+                                        <Button Margin="0,8,8,0"
+                                                Command="materialDesign:DialogHost.CloseDialogCommand"
+                                                Cursor="Arrow"
+                                                IsCancel="True"
+                                                Style="{StaticResource MaterialDesignFlatButton}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                                    False
+                                                </system:Boolean>
+                                            </Button.CommandParameter>
+                                            CANCEL
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </materialDesign:DialogHost.DialogContent>
+                            <Border MinWidth="256"
+                                    MinHeight="256"
+                                    VerticalAlignment="Top"
+                                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                                    BorderThickness="1"
+                                    ClipToBounds="True"
+                                    Visibility="Visible">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <ListBox x:Name="PortListBox">
+                                        <ListBox.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Click="DeletePortItem_Click">
+                                                    <MenuItem.Icon>
+                                                        <materialDesign:PackIcon Kind="TrashOutline" />
+                                                    </MenuItem.Icon>
+                                                    <MenuItem.Header>
+                                                        <TextBlock>Delete port</TextBlock>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                                <MenuItem Click="CopyPortItem_Click">
+                                                    <MenuItem.Icon>
+                                                        <materialDesign:PackIcon Kind="ClipboardOutline" />
+                                                    </MenuItem.Icon>
+                                                    <MenuItem.Header>
+                                                        <TextBlock>Copy Port</TextBlock>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                            </ContextMenu>
+                                        </ListBox.ContextMenu>
+                                    </ListBox>
+                                    <Button Grid.Row="0"
+                                            Margin="0,0,28,-20"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Bottom"
+                                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                            Cursor="Arrow"
+                                            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <materialDesign:PackIcon Width="22"
+                                                                 Height="22"
+                                                                 Kind="Plus" />
+                                    </Button>
+                                    <Grid Grid.Row="1">
+                                        <StackPanel Grid.Row="0"
+                                                    Margin="15,0,0,0"
+                                                    Orientation="Horizontal">
+                                            <ToggleButton Name="InvertPortFilterToggle"
+                                                          Cursor="Arrow"
+                                                          Style="{DynamicResource MaterialDesignSwitchToggleButton}" />
+                                            <TextBlock Margin="10,16,0,16" Foreground="White">
+                                                Invert filter
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </materialDesign:DialogHost>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
